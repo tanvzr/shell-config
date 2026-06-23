@@ -4,20 +4,26 @@ set -e
 
 echo "Uninstalling shell configuration..."
 
-BACKUP="$HOME/.shell-config-backup-$(date +%F-%H%M)"
-mkdir -p "$BACKUP"
+CONFIG="$HOME/.config"
 
-for file in .bashrc .aliases .bash_functions .bash_profile; do
-    if [ -f "$HOME/$file" ]; then
-        cp "$HOME/$file" "$BACKUP/"
-        rm "$HOME/$file"
-    fi
-done
+# Remove Bash files
+rm -f "$HOME/.bashrc"
+rm -f "$HOME/.bash_profile"
+rm -f "$HOME/.aliases"
+rm -f "$HOME/.bash_functions"
 
-rm -rf "$HOME/.config/starship"
-rm -rf "$HOME/.config/fastfetch"
 
-echo "Backup saved at:"
-echo "$BACKUP"
+# Remove Starship config
+rm -rf "$CONFIG/starship"
 
-echo "Done. Restart your terminal."
+
+# Remove Fastfetch config
+rm -rf "$CONFIG/fastfetch"
+
+
+echo "Done."
+echo "Shell configuration removed."
+
+echo
+echo "If needed, restore your backup from:"
+echo "~/.config/shell-config-backup-*"
