@@ -46,7 +46,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export LINUXTOOLBOXDIR="$HOME/linuxtoolbox"
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -106,6 +106,7 @@ fi
 # ============================================================================
 # Prompt
 # ============================================================================
+
 
 eval "$(starship init bash)"
 

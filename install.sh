@@ -16,8 +16,8 @@ cp bash/functions.sh "$HOME/.bash_functions"
 
 
 # Starship
-mkdir -p "$CONFIG"
-cp starship/starship.toml "$CONFIG/starship.toml"
+mkdir -p "$HOME/.config/starship"
+cp starship/starship.toml "$HOME/.config/starship/starship.toml"
 
 
 # Fastfetch
