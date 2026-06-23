@@ -13,7 +13,7 @@ mkdir -p "$CONFIG/fastfetch"
 cp bash/.bashrc "$HOME/.bashrc"
 cp bash/aliases.sh "$HOME/.aliases"
 cp bash/functions.sh "$HOME/.bash_functions"
-
+cp bash/.bash_profile "$HOME/.bash_profile"
 
 # Starship
 mkdir -p "$HOME/.config/starship"
