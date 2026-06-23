@@ -12,6 +12,8 @@ Includes:
 
 ## Install
 
+```bash
 git clone git@github.com:tanvzr/shell-config.git
 cd shell-config
 ./install.sh
+```
