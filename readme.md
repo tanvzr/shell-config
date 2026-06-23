@@ -1,0 +1,17 @@
+# Shell Configuration
+
+My personal Linux shell setup.
+
+Includes:
+
+- Bash configuration
+- Aliases
+- Bash functions
+- Starship prompt
+- Fastfetch configuration
+
+## Install
+
+git clone git@github.com:tanvzr/shell-config.git
+cd shell-config
+./install.sh
