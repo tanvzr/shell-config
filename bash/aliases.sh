@@ -29,7 +29,7 @@ alias bd='cd "$OLDPWD"'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
-
+alias rename='mv'
 alias cls='clear'
 
 # ============================================================================
