@@ -1,138 +1,196 @@
+add_newline = true
+
 format = """
-[](fg:#3B4252)\
+[](fg:#5E81AC)\
+[$os](fg:#FFFFFF bg:#5E81AC)\
+[](fg:#5E81AC bg:#81A1C1)\
+[](fg:#81A1C1 bg:#5E81AC)\
+[ $username](fg:#FFFFFF bg:#5E81AC)\
+[](fg:#5E81AC bg:#5E81AC)\
+[](fg:#5E81AC bg:#4C6A8A)\
+[](fg:#4C6A8A bg:#3B5068)\
+[](fg:#3B5068 bg:#5E81AC)\
+[](fg:#5E81AC bg:#5E81AC)\
+[ ❯ $directory ](fg:#FFFFFF bg:#5E81AC)\
+[$git_branch](fg:#FFFFFF bg:#5E81AC)\
+[](fg:#5E81AC bg:#4C6A8A)\
+[](fg:#4C6A8A bg:#5E81AC)\
+[ 󰨏 $cmd_duration](fg:#FFFFFF bg:#5E81AC)\
+[](fg:#5E81AC)\
+$fill\
+[](fg:#5E81AC)\
+[󰥔 $time](fg:#FFFFFF bg:#5E81AC)\
+[](fg:#5E81AC bg:#5E81AC)\
+[](fg:#4C6A8A bg:#5E81AC)\
+[](fg:#5E81AC bg:#4C6A8A)\
+[](fg:#81A1C1 bg:#5E81AC)\
+[](fg:#5E81AC bg:#81A1C1)\
 $python\
-[󰣇](bg:#3B4252 fg:#1793D1)\
-[ ](bg:#3B4252)\
-$username\
-[](bg:#434C5E fg:#3B4252)\
-$directory\
-[](fg:#434C5E bg:#4C566A)\
-$git_branch\
-$git_status\
-[](fg:#4C566A bg:#86BBD8)\
-$c\
-$elixir\
-$elm\
-$golang\
-$haskell\
-$java\
-$julia\
 $nodejs\
-$nim\
 $rust\
-[](fg:#86BBD8 bg:#06969A)\
+$java\
+$golang\
+$php\
+$ruby\
+$c\
+$swift\
+$kotlin\
+$lua\
+$terraform\
 $docker_context\
-[](fg:#06969A bg:#33658A)\
-$time\
-[ ](fg:#33658A)\
+$haskell\
+$elixir\
+$dart\
+$zig\
+[](fg:#5E81AC)\
 $line_break\
 [  ](fg:#1793D1)\
 $line_break\
-[  ](fg:333333)
+$character
 """
-command_timeout = 5000
-# Disable the blank line at the start of the prompt
-# add_newline = false
 
-# You can also replace your username with a neat symbol like  to save some space
+palette = "BloodTear"
+
+[palettes.BloodTear]
+PRIM  = '#5E81AC'
+SEC   = '#FFFFFF'
+GRAD0 = '#88C0D0'
+GRAD1 = '#81A1C1'
+GRAD2 = '#5E81AC'
+GRAD3 = '#4C6A8A'
+GRAD4 = '#3B5068'
+CHEVBL= '#009DD9'
+CHEVRD= 'E21836'
+
+# OS module
+[os]
+disabled = false
+symbols = { Windows = " ", Debian = " ", Arch = "󰣇 "}
+style = "fg:#FFFFFF bg:#5E81AC"
+format = "$symbol"
+
+# Username module – corrigido: style_user e style_root
 [username]
 show_always = true
-style_user = "bg:#3B4252"
-style_root = "bg:#3B4252"
-format = '[$user ]($style)'
+format = "$user"
+style_user = "fg:#FFFFFF bg:#5E81AC"
+style_root = "fg:#FFFFFF bg:#5E81AC"
 
+# Fill module
+[fill]
+symbol = "─"
+style = "bold #5E81AC"
+
+# Directory module
 [directory]
-style = "bg:#434C5E"
-format = "[ $path ]($style)"
+format = "$path"
 truncation_length = 3
 truncation_symbol = "…/"
+style = "fg:#FFFFFF bg:#5E81AC"
 
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-# Keep in mind that the order matters. For example:
-# "Important Documents" = "  "
-# will not be replaced, because "Documents" was already substituted before.
-# So either put "Important Documents" before "Documents" or use the substituted version:
-# "Important  " = "  "
 
-[c]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol $context ]($style) $path'
-
-[elixir]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
+# Git branch
 [git_branch]
-symbol = ""
-style = "bg:#4C566A"
-format = '[ $symbol $branch ]($style)'
+symbol = " "
+format = "[ $symbol$branch ](fg:#FFFFFF bg:#5E81AC)"
 
-[git_status]
-style = "bg:#4C566A"
-format = '[$all_status$ahead_behind ]($style)'
+# Time
+[time]
+use_12hr = true
+disabled = false
+time_format = "%I:%M %p"
+format = '[$time]($style)'
+style = "fg:#FFFFFF bg:#5E81AC"
 
-[golang]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+# Command duration
+[cmd_duration]
+show_milliseconds = true
+min_time = 0
+format = "[$duration]($style)"
+style = "fg:#FFFFFF bg:#5E81AC"
 
-[haskell]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+# Character
+[character]
+success_symbol = "[❯](fg:#009DD9)"
+error_symbol = "[❯](fg:#E21836)"
 
-[java]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+# ------------------------------------------------------------
+# Módulos de linguagem – formato simples e sem erros
+# Mostram versão + símbolo (ambos em branco) sobre fundo vermelho
+# ------------------------------------------------------------
 
-[julia]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+[python]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [nodejs]
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[python]
-style = "bg:#3B4252"
-format = '[(\($virtualenv\) )]($style)'
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [rust]
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
 
-[time]
-disabled = false
-time_format = "%I:%M %p" # %R for Hour:Minute Format
-style = "bg:#33658A"
-format = '[ $time ]($style)'
+[java]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[golang]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[php]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[ruby]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[c]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[swift]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[kotlin]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[lua]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[terraform]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[docker_context]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[haskell]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[elixir]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[dart]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[zig]
+symbol = ""
+format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [line_break]
 disabled = false
