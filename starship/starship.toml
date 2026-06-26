@@ -3,8 +3,8 @@ add_newline = true
 format = """
 [](fg:#5E81AC)\
 [$os](fg:#FFFFFF bg:#5E81AC)\
-[](fg:#5E81AC bg:#81A1C1)\
-[](fg:#81A1C1 bg:#5E81AC)\
+[](fg:#5E81AC bg:#3B5068)\
+[](fg:#3B5068 bg:#5E81AC)\
 [ $username](fg:#FFFFFF bg:#5E81AC)\
 [](fg:#5E81AC bg:#5E81AC)\
 [](fg:#5E81AC bg:#4C6A8A)\
@@ -27,6 +27,7 @@ $fill\
 [](fg:#5E81AC bg:#81A1C1)\
 $python\
 $nodejs\
+$rlang\
 $rust\
 $java\
 $golang\
@@ -44,7 +45,7 @@ $dart\
 $zig\
 [](fg:#5E81AC)\
 $line_break\
-[  ](fg:#1793D1)\
+[  ](fg:#FFFFFF)\
 $line_break\
 $character
 """
@@ -116,81 +117,85 @@ style = "fg:#FFFFFF bg:#5E81AC"
 
 # Character
 [character]
-success_symbol = "[❯](fg:#009DD9)"
-error_symbol = "[❯](fg:#E21836)"
+success_symbol = "[ ❱](bold fg:#009DD9)"
+error_symbol = "[ ❱](bold fg:#E21836)"
 
-# ------------------------------------------------------------
-# Módulos de linguagem – formato simples e sem erros
-# Mostram versão + símbolo (ambos em branco) sobre fundo vermelho
-# ------------------------------------------------------------
+# =======================================================
+# Language Modules
+# Display language symbol in white on a blue background
+#========================================================
 
 [python]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [nodejs]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
+
+[rlang]
+symbol = "󰟔 "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [rust]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [java]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [golang]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [php]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [ruby]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [c]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [swift]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [kotlin]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [lua]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [terraform]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [docker_context]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [haskell]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [elixir]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [dart]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [zig]
-symbol = ""
-format = "[($version) $symbol](fg:#FFFFFF bg:#5E81AC)"
+symbol = " "
+format = "[$symbol](fg:#FFFFFF bg:#5E81AC)"
 
 [line_break]
 disabled = false
